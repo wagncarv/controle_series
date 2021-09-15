@@ -29,4 +29,11 @@ class SeriesController extends Controller
             ->flash("mensagem", "Série {$serie->nome} criada com sucesso!");
         return redirect('/series');
     }
+
+    public function destroy(Request $request){
+        Serie::destroy($request->id);
+        $request->session()
+            ->flash("mensagem", "Série excluída com sucesso!");
+        return redirect('/series');
+    }
 }
